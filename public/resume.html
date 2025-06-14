@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osama Abo-Bakr - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background: #fff;
+            font-size: 11px;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 8px;
+        }
+        
+        .title {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            font-size: 11px;
+            color: #555;
+        }
+        
+        .contact-info span {
+            white-space: nowrap;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #0066cc;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .objective {
+            text-align: justify;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+            border-left: 3px solid #e0e0e0;
+            padding-left: 15px;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 12px;
+        }
+        
+        .company {
+            font-weight: bold;
+            color: #0066cc;
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+        
+        .duration {
+            font-style: italic;
+            color: #666;
+            font-size: 10px;
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+        
+        .job-description ul {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+        
+        .job-description li {
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .skill-category {
+            margin-bottom: 15px;
+        }
+        
+        .skill-category-title {
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 3px;
+            padding-left: 15px;
+            position: relative;
+            line-height: 1.3;
+        }
+        
+        .skill-list li:before {
+            content: "▸";
+            color: #0066cc;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .project-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        
+        .project-title {
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+        
+        .project-description {
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        
+        .project-tools {
+            font-style: italic;
+            color: #666;
+            font-size: 10px;
+            background: white;
+            padding: 3px 6px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .download-print {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .btn {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            background: #0052a3;
+        }
+        
+        @media print {
+            body { 
+                font-size: 10px; 
+                padding: 0;
+            }
+            .container { 
+                padding: 15px; 
+                box-shadow: none;
+            }
+            .section { 
+                margin-bottom: 20px; 
+            }
+            .download-print {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .duration {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="download-print">
+        <button class="btn" onclick="window.print()">Print/Save as PDF</button>
+        <button class="btn" onclick="downloadAsHTML()">Download HTML</button>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="name">Osama Abo-Bakr</div>
+            <div class="title">AI | Machine Learning Engineer</div>
+            <div class="contact-info">
+                <span>📞 +201274011748</span>
+                <span>✉️ osamaoabobakr12@gmail.com</span>
+                <span>📍 Cairo, Egypt</span>
+                <span>💼 LinkedIn: linkedin.com/in/osama-abo-bakr-293614259</span>
+                <span>💻 GitHub: github.com/Osama-Abo-Bakr</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Career Objective</div>
+            <div class="objective">
+                AI Engineer with expertise in Machine Learning, Deep Learning, NLP, LLMs, RAG, and AI solutions, passionate about building innovative technologies like RAG-System, Chatbots, AI-Agent, and image-based systems to solve real-world problems and advance the field.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Work Experience</div>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="company">UPWORK</div>
+                        <div class="job-title">Freelance AI Developer | Machine Learning Engineer</div>
+                    </div>
+                    <div class="duration">2023-Present</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Developed AI solutions (chatbots, APIs, automation) for e-commerce and SaaS platforms</li>
+                        <li>Built custom speech recognition and translation models tailored for real-world applications</li>
+                        <li>Developed AI-Powered Automation system Using LangChain & Tools Like n8n to Automate Business's</li>
+                        <li>Created an advanced image search engine leveraging visual detection models for precise content retrieval</li>
+                        <li>Successfully completed over 10 projects with a 5-star rating on Upwork, earning more than $5,000</li>
+                        <li>Consistently delivered projects on time, receiving strong client feedback and maintaining a top-rated Upwork profile</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="company">Nexus Mundus Equity LLC</div>
+                        <div class="job-title">Independent Contractor - AI Developer</div>
+                    </div>
+                    <div class="duration">Dec 2024 - Feb 2025</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Developed AI features (chatbots, order tracking, product recommendations, FAQ handling, cart reminders) for Arabic-speaking users on e-commerce platforms</li>
+                        <li>Managed API integration, automation, and chatbot deployment</li>
+                        <li>Enhanced user experience and operational efficiency with AI solutions</li>
+                        <li>Transferred all work and rights to Nexus Mundus Equity LLC, ensuring confidentiality and IP compliance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="company">MENOUFIA UNIVERSITY</div>
+                        <div class="job-title">AI | Machine Learning Engineer</div>
+                    </div>
+                    <div class="duration">2023-2024</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Worked on Faculty-improving projects as a student in the faculty of Artificial intelligence</li>
+                        <li>Developed Face Recognition System to take student's attendance</li>
+                        <li>Created Essay-Correction system that understands given text's context and marks solutions</li>
+                        <li>Helped a Masters Degree Student in building a deep learning model for X-Ray breast cancer detection</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="company">ALGO-MASTER</div>
+                        <div class="job-title">Python-Lead</div>
+                    </div>
+                    <div class="duration">2022-2023</div>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Worked as python instructor and python-programming department lead in AlgoMasters NPO</li>
+                        <li>Prepared sessions, led the python team, and created competitions and homework for students</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div class="education-item">
+                <div class="job-header">
+                    <div>
+                        <div class="company">Faculty of Artificial Intelligence | Menoufia University</div>
+                        <div class="job-title">Machine Intelligence Major</div>
+                    </div>
+                    <div class="duration">2022 - 2026</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Technical Skills</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-title">Programming Languages</div>
+                    <ul class="skill-list">
+                        <li>Python & C++ Programming</li>
+                        <li>Git & Github</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">AI/ML Frameworks</div>
+                    <ul class="skill-list">
+                        <li>PyTorch & TensorFlow & Sklearn</li>
+                        <li>Hugging-Face, OpenAI</li>
+                        <li>Machine & Deep Learning</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Data Science</div>
+                    <ul class="skill-list">
+                        <li>Pandas, Numpy, Matplotlib & seaborn</li>
+                        <li>NLP & Transformers & LLMs</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Development & Deployment</div>
+                    <ul class="skill-list">
+                        <li>FastAPI</li>
+                        <li>Docker</li>
+                        <li>Deployment</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">AI Systems</div>
+                    <ul class="skill-list">
+                        <li>RAG & AI Agent & Automation (n8n)</li>
+                        <li>LangChain</li>
+                        <li>Llama-Index</li>
+                        <li>Vector-Database</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Languages</div>
+                    <ul class="skill-list">
+                        <li>English (Conversational)</li>
+                        <li>Arabic (Native)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Key Projects</div>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="project-title">SaaS - RAG Application Multi-Model</div>
+                    <div class="project-description">Building RAG application work as Chatbot for your Documents with features like Upload Up-to 30 Documents, Multi-Model Can Understand Image, Diagrams, Hybrid Search & Extracting Metadata, Voice Integration, Frontend Using React and NodeJS.</div>
+                    <div class="project-tools">Tools: Python | LangChain | Weaviate Vector-DB | FastAPI | Deployment | Google API</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">Chatbot For E-commerce website with Recommendation System</div>
+                    <div class="project-description">Building Chatbot with capabilities like FAQs, Recommendation System, Multi Language Support.</div>
+                    <div class="project-tools">Tools: Python | RAG | LangChain | FAISS | OpenAI | FastAPI</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">Medical Test Analysis With Chatbot</div>
+                    <div class="project-description">Building Chatbot with capability to Read & Analysis Medical Test with Multi language support.</div>
+                    <div class="project-tools">Tools: Python | RAG | LangChain | Groq | Llama 3.1 70b | Streamlit | Deployment</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">Face Recognition System</div>
+                    <div class="project-description">Building Face Recognition Model for taking Student's Attendance and save all students in CSV file with name and student ID.</div>
+                    <div class="project-tools">Models: Facenet | Facenet512 | Dlib | VGG-Face. Tools: Python | Deep-Face Library | Mediapipe | OpenCV | Streamlit</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-title">Object Tracking Projects</div>
+                    <div class="project-description">Building Tracking Projects like Tracking & Counting Cars in road, Tracking People & Counting, Tracking Multiobject using YOLO models.</div>
+                    <div class="project-tools">Tools: Python | YOLO | OpenCV | Computer Vision</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Soft Skills</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <ul class="skill-list">
+                        <li>Problem Solving and Analytical Thinking</li>
+                        <li>Team Collaboration and Leadership</li>
+                        <li>Adaptability and Time Management</li>
+                        <li>Effective Communication</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <ul class="skill-list">
+                        <li>Upskilling</li>
+                        <li>Fast Learning</li>
+                        <li>Conflict Handling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadAsHTML() {
+            const element = document.createElement('a');
+            const file = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+            element.href = URL.createObjectURL(file);
+            element.download = 'Osama_Abo-Bakr_Resume.html';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    </script>
+</body>
+</html>

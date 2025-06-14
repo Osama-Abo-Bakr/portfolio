@@ -1,0 +1,389 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cyberpunk Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background: #000;
+  font-family: "Courier New", monospace;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.8);
+  border-left: 1px solid #00ffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00ffff, #ff00ff);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #ff00ff, #ffff00);
+}
+
+/* Scan Lines Effect */
+.scan-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 50%, rgba(0, 255, 255, 0.03) 50%);
+  background-size: 100% 4px;
+  animation: scan 0.1s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(4px);
+  }
+}
+
+/* Glitch Effect */
+.glitch-container {
+  position: relative;
+}
+
+.glitch {
+  position: relative;
+  animation: glitch 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-1 0.5s infinite;
+  color: #ff00ff;
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitch-2 0.5s infinite;
+  color: #00ffff;
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitch-1 {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(2px, -2px);
+  }
+  40% {
+    transform: translate(-2px, 2px);
+  }
+  60% {
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    transform: translate(2px, 2px);
+  }
+}
+
+@keyframes glitch-2 {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(-2px, -2px);
+  }
+}
+
+/* Cyberpunk Components */
+.cyber-title {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 font-mono tracking-wider;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.cyber-divider {
+  @apply w-32 h-1 bg-gradient-to-r from-cyan-500 via-pink-500 to-purple-500 mx-auto;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.cyber-border {
+  @apply border-2 border-cyan-400/50 bg-black/50 backdrop-blur-sm;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.cyber-button-primary {
+  @apply relative px-8 py-4 bg-black border-2 border-cyan-400 text-cyan-400 font-mono font-bold tracking-wider uppercase transition-all duration-300 overflow-hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.cyber-button-primary:hover {
+  @apply text-black border-pink-400;
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+}
+
+.cyber-button-secondary {
+  @apply px-8 py-4 bg-transparent border-2 border-pink-400/50 text-pink-400 font-mono font-bold tracking-wider uppercase hover:border-pink-400 hover:bg-pink-400/10 transition-all duration-300;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+.cyber-button-small {
+  @apply flex items-center gap-2 px-4 py-2 bg-black/80 border border-cyan-400/50 text-cyan-400 text-xs font-mono font-bold tracking-wider uppercase hover:border-cyan-400 hover:bg-cyan-400/10 transition-all duration-300;
+}
+
+/* Navigation */
+.cyber-nav-bg {
+  @apply bg-black/90 backdrop-blur-md border-b border-cyan-400/30;
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.1);
+}
+
+.cyber-nav-link {
+  @apply text-gray-400 hover:text-cyan-400 px-4 py-2 transition-all duration-300 relative;
+}
+
+.cyber-nav-link:hover::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-pink-400;
+}
+
+.cyber-mobile-menu {
+  @apply bg-black/95 backdrop-blur-md border-b border-cyan-400/30;
+}
+
+.cyber-mobile-link {
+  @apply text-gray-400 hover:text-cyan-400 transition-colors duration-300;
+}
+
+/* Panels */
+.cyber-panel {
+  @apply bg-black/80 backdrop-blur-sm border border-cyan-400/30 p-6 transition-all duration-300;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1), inset 0 0 20px rgba(0, 255, 255, 0.05);
+}
+
+.cyber-panel:hover {
+  @apply border-cyan-400/50;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2), inset 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.cyber-panel-header {
+  @apply flex items-center justify-between mb-6 pb-4 border-b border-cyan-400/20;
+}
+
+/* Data Rows */
+.cyber-data-row {
+  @apply flex items-center space-x-3 p-2 hover:bg-cyan-400/5 transition-colors duration-300;
+}
+
+.cyber-link {
+  @apply text-cyan-400 hover:text-pink-400 transition-colors duration-300;
+}
+
+.cyber-link:hover {
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* Achievements */
+.cyber-achievement {
+  @apply relative p-3 bg-black/50 border-l-4 border-cyan-400/50 hover:border-cyan-400 transition-all duration-300;
+}
+
+.cyber-achievement-bar {
+  @apply absolute left-0 top-0 w-1 h-full;
+}
+
+/* Stats */
+.cyber-stat {
+  @apply text-center p-4 bg-black/50 border border-cyan-400/20 hover:border-cyan-400/50 transition-all duration-300;
+}
+
+.cyber-stats-grid {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-6;
+}
+
+.cyber-stat-card {
+  @apply cyber-panel text-center;
+}
+
+.cyber-stat-value {
+  @apply text-4xl font-bold font-mono mb-2;
+}
+
+.cyber-stat-label {
+  @apply text-xs font-mono text-gray-400 uppercase tracking-wider mb-4;
+}
+
+.cyber-stat-bar {
+  @apply w-full h-1 rounded-full;
+}
+
+/* Projects */
+.cyber-project-card {
+  @apply bg-black/80 backdrop-blur-sm border border-cyan-400/30 overflow-hidden transition-all duration-300 hover:border-cyan-400/50 hover:transform hover:scale-105;
+}
+
+.cyber-project-header {
+  @apply flex items-center justify-between p-4;
+}
+
+.cyber-feature {
+  @apply flex items-center space-x-3;
+}
+
+.cyber-feature-dot {
+  @apply w-2 h-2 bg-gradient-to-r from-cyan-400 to-pink-400 rounded-full flex-shrink-0;
+  box-shadow: 0 0 10px currentColor;
+}
+
+/* Skills */
+.cyber-skill-card {
+  @apply cyber-panel;
+}
+
+.cyber-skill-header {
+  @apply flex items-center justify-between p-4 mb-4 -m-6 mb-6;
+}
+
+.cyber-skill-item {
+  @apply space-y-2;
+}
+
+.cyber-skill-bar {
+  @apply w-full h-2 bg-gray-800 relative overflow-hidden;
+}
+
+.cyber-skill-progress {
+  @apply h-full transition-all duration-1000 ease-out;
+  box-shadow: 0 0 10px currentColor;
+}
+
+/* Contact */
+.cyber-contact-item {
+  @apply flex items-center space-x-4 p-4 hover:bg-cyan-400/5 transition-colors duration-300;
+}
+
+.cyber-contact-icon {
+  @apply w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110;
+}
+
+.cyber-social-link {
+  @apply w-12 h-12 bg-black/80 border border-cyan-400/50 rounded-full flex items-center justify-center text-cyan-400 hover:text-pink-400 hover:border-pink-400 transition-all duration-300;
+}
+
+.cyber-social-link:hover {
+  box-shadow: 0 0 20px currentColor;
+}
+
+.cyber-status-item {
+  @apply flex items-center space-x-3;
+}
+
+.cyber-status-dot {
+  @apply w-3 h-3 rounded-full flex-shrink-0;
+  box-shadow: 0 0 10px currentColor;
+}
+
+/* Form Elements */
+.cyber-label {
+  @apply block text-cyan-400 text-sm font-mono font-bold mb-2 uppercase tracking-wider;
+}
+
+.cyber-input {
+  @apply w-full px-4 py-3 bg-black/80 border border-cyan-400/30 text-white font-mono placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-all duration-300;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.cyber-input:focus {
+  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.2), 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.cyber-textarea {
+  @apply cyber-input resize-none;
+}
+
+/* Animations */
+@keyframes pulse-cyan {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+  }
+}
+
+@keyframes pulse-pink {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 0, 255, 0.6);
+  }
+}
+
+.animate-pulse-cyan {
+  animation: pulse-cyan 2s infinite;
+}
+
+.animate-pulse-pink {
+  animation: pulse-pink 2s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cyber-title {
+    @apply text-3xl;
+  }
+
+  .cyber-button-primary,
+  .cyber-button-secondary {
+    @apply px-6 py-3 text-sm;
+  }
+}
