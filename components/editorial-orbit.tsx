@@ -1,6 +1,6 @@
 "use client"
 
-import { toolkit } from "@/lib/content"
+import { sectionIndex, toolkit } from "@/lib/content"
 import { Eyebrow } from "@/components/section-head"
 import { useReveal } from "@/hooks/use-reveal"
 
@@ -19,7 +19,7 @@ export function EditorialOrbit() {
     <section id="toolkit" ref={ref} className="band-deep section-pad reveal relative overflow-hidden">
       <div className="grid gap-y-6 md:grid-cols-12 md:gap-10">
         <div className="md:col-span-6">
-          <Eyebrow index="04" label="Toolkit" />
+          <Eyebrow index={sectionIndex("toolkit")} label="Toolkit" />
           <h2 className="mt-6 max-w-[15ch] font-display text-title font-medium">Every layer has a purpose.</h2>
         </div>
         <p className="max-w-measure self-end text-[0.9375rem] leading-relaxed text-bone-dim md:col-span-4 md:col-start-9">

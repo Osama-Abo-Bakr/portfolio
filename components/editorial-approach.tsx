@@ -1,6 +1,6 @@
 "use client"
 
-import { lede } from "@/lib/content"
+import { lede, sectionIndex } from "@/lib/content"
 import { Eyebrow } from "@/components/section-head"
 import { useReveal } from "@/hooks/use-reveal"
 
@@ -14,7 +14,7 @@ export function EditorialApproach() {
   return (
     <section id="approach" ref={ref} className="reveal grid md:grid-cols-2">
       <div className="order-2 flex flex-col justify-center page-pad py-16 md:order-1 md:py-24">
-        <Eyebrow index="01" label="Approach" />
+        <Eyebrow index={sectionIndex("approach")} label="Approach" />
         <h2 className="mt-8 max-w-[16ch] font-display text-title font-medium">Systems, considered differently.</h2>
         <div className="rule-t mt-10 space-y-5 pt-8">
           {lede.map((paragraph, i) => (

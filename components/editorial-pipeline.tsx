@@ -1,6 +1,6 @@
 "use client"
 
-import { pipeline } from "@/lib/content"
+import { pipeline, sectionIndex } from "@/lib/content"
 import { Eyebrow } from "@/components/section-head"
 import { useReveal } from "@/hooks/use-reveal"
 
@@ -16,7 +16,7 @@ export function EditorialPipeline() {
     <section id="pipeline" ref={ref} className="invert-white section-pad reveal pt-0">
       <div className="grid gap-y-6 md:grid-cols-12 md:gap-10">
         <div className="md:col-span-6">
-          <Eyebrow index="03" label="Pipeline" />
+          <Eyebrow index={sectionIndex("pipeline")} label="Pipeline" />
           <h2 className="mt-6 max-w-[16ch] font-display text-title font-medium">One document, four stages.</h2>
         </div>
         <p className="max-w-measure self-end text-[0.9375rem] leading-relaxed text-bone-dim md:col-span-5 md:col-start-8">

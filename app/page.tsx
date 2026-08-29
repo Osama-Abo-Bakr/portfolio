@@ -7,6 +7,7 @@ import { EditorialOrbit } from "@/components/editorial-orbit"
 import { EditorialPractice } from "@/components/editorial-practice"
 import { EditorialWork } from "@/components/editorial-work"
 import { EditorialMeasures } from "@/components/editorial-measures"
+import { EditorialTestimonials } from "@/components/editorial-testimonials"
 import { EditorialColophon } from "@/components/editorial-colophon"
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
         <EditorialPractice />
         <EditorialWork />
         <EditorialMeasures />
+        <EditorialTestimonials />
         <EditorialColophon />
       </main>
     </>

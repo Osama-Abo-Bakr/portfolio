@@ -1,6 +1,6 @@
 "use client"
 
-import { facts, identity, practice } from "@/lib/content"
+import { facts, identity, practice, sectionIndex } from "@/lib/content"
 import { Eyebrow } from "@/components/section-head"
 import { useReveal } from "@/hooks/use-reveal"
 
@@ -12,7 +12,7 @@ export function EditorialPractice() {
       {/* Portrait band — the reference's founder spread. */}
       <div className="grid md:grid-cols-2">
         <div className="order-2 flex flex-col justify-center page-pad py-16 md:order-1 md:py-24">
-          <Eyebrow index="05" label="Profile" />
+          <Eyebrow index={sectionIndex("profile")} label="Profile" />
           <h2 className="mt-8 max-w-[18ch] font-display text-title font-medium">
             Two years of shipping the hard part.
           </h2>

@@ -13,6 +13,10 @@ export const identity = {
   githubHandle: "Osama-Abo-Bakr",
   linkedin: "https://www.linkedin.com/in/osama-abo-bakr-293614259/",
   linkedinHandle: "osama-abo-bakr",
+  upwork: "https://www.upwork.com/freelancers/osamaa305",
+  upworkHandle: "Top Rated freelancer",
+  // Same line as `phone`, digits only: country code, no leading zero.
+  whatsapp: "https://wa.me/201274011748",
   resume: "/resume.pdf",
   site: "https://osama-abo-bakr.vercel.app",
 }
@@ -306,13 +310,45 @@ export const pipeline = [
   },
 ] as const
 
-export const sections = [
-  { id: "approach", index: "01", label: "Approach" },
-  { id: "domains", index: "02", label: "Practice" },
-  { id: "pipeline", index: "03", label: "Pipeline" },
-  { id: "toolkit", index: "04", label: "Toolkit" },
-  { id: "profile", index: "05", label: "Profile" },
-  { id: "work", index: "06", label: "Work" },
-  { id: "measures", index: "07", label: "Measures" },
-  { id: "colophon", index: "08", label: "Contact" },
-] as const
+export type Testimonial = {
+  /** The client's own words. Never paraphrased, never invented. */
+  quote: string
+  /** Attribution as the client gave it — a first name and initial is fine. */
+  author: string
+  /** Engagement or role, e.g. "Private Coaching" in the reference. */
+  context: string
+}
+
+/**
+ * Client feedback, verbatim from Upwork. Empty until the real text is to
+ * hand — the section below simply does not render while this is empty,
+ * because inventing praise for a real person is not an option.
+ *
+ * To fill it: copy each review from
+ * https://www.upwork.com/freelancers/osamaa305 and paste it here.
+ */
+export const testimonials: Testimonial[] = []
+
+// The running order. Feedback joins it only once there are quotes, and the
+// numerals derive from position, so nothing has to be renumbered by hand.
+const runningOrder = [
+  { id: "approach", label: "Approach" },
+  { id: "domains", label: "Practice" },
+  { id: "pipeline", label: "Pipeline" },
+  { id: "toolkit", label: "Toolkit" },
+  { id: "profile", label: "Profile" },
+  { id: "work", label: "Work" },
+  { id: "measures", label: "Measures" },
+  ...(testimonials.length > 0 ? [{ id: "feedback", label: "Feedback" }] : []),
+  { id: "colophon", label: "Contact" },
+]
+
+export const sections = runningOrder.map((section, i) => ({
+  ...section,
+  index: String(i + 1).padStart(2, "0"),
+}))
+
+/** The numeral a section carries in the running order. */
+export function sectionIndex(id: string): string {
+  return sections.find((s) => s.id === id)?.index ?? "—"
+}

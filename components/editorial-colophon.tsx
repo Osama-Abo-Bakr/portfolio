@@ -1,14 +1,16 @@
 "use client"
 
-import { facts, identity } from "@/lib/content"
+import { facts, identity, sectionIndex } from "@/lib/content"
 import { SectionHead } from "@/components/section-head"
 import { useReveal } from "@/hooks/use-reveal"
 
 // The address itself is set large just above, so it is not repeated here.
 const channels = [
+  { label: "WhatsApp", value: identity.phone, href: identity.whatsapp },
   { label: "Phone", value: identity.phone, href: `tel:${identity.phone.replace(/\s/g, "")}` },
   { label: "LinkedIn", value: identity.linkedinHandle, href: identity.linkedin },
   { label: "GitHub", value: identity.githubHandle, href: identity.github },
+  { label: "Upwork", value: identity.upworkHandle, href: identity.upwork },
   { label: "Résumé", value: "PDF, one page", href: identity.resume },
 ]
 
@@ -18,7 +20,7 @@ export function EditorialColophon() {
   return (
     <section id="colophon" ref={ref} className="section-pad reveal">
       <SectionHead
-        index="08"
+        index={sectionIndex("colophon")}
         label="Contact"
         title="Open to work that needs the hard part done properly."
         aside="Freelance and consulting enquiries welcome — retrieval systems, document intelligence, agent architectures, or an existing pipeline that needs to get faster."
@@ -46,7 +48,7 @@ export function EditorialColophon() {
         </span>
       </a>
 
-      <dl className="mt-16 grid gap-x-10 gap-y-0 sm:grid-cols-2 lg:grid-cols-4">
+      <dl className="mt-16 grid gap-x-10 gap-y-0 sm:grid-cols-2 lg:grid-cols-3">
         {channels.map((channel) => (
           <div key={channel.label} data-reveal-child className="reveal rule-t py-5">
             <dt className="label">{channel.label}</dt>

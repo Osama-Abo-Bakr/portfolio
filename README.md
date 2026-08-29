@@ -57,6 +57,14 @@ Next.js 15 (App Router, static) · React 19 · TypeScript · Tailwind CSS 3 ·
 `next/font` for self-hosted Google fonts. No UI framework, no client-side data
 fetching, no images to load.
 
+## Client feedback
+
+`testimonials` in `lib/content.ts` is empty, and the Feedback band does not
+render while it is. Paste real reviews from
+<https://www.upwork.com/freelancers/osamaa305> — quote, author, engagement —
+and the section appears, the running order renumbers itself, and the nav picks
+it up. Nothing there is invented.
+
 ## Contact
 
 - Email — <osamaoabobakr12@gmail.com>

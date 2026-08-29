@@ -1,6 +1,6 @@
 "use client"
 
-import { domains } from "@/lib/content"
+import { domains, sectionIndex } from "@/lib/content"
 import { Eyebrow } from "@/components/section-head"
 import { useReveal } from "@/hooks/use-reveal"
 
@@ -15,7 +15,7 @@ export function EditorialDomains() {
     <section id="domains" ref={ref} className="invert-white section-pad reveal">
       <div className="grid gap-y-6 md:grid-cols-12 md:gap-10">
         <div className="md:col-span-6">
-          <Eyebrow index="02" label="Practice" />
+          <Eyebrow index={sectionIndex("domains")} label="Practice" />
           <h2 className="mt-6 max-w-[14ch] font-display text-title font-medium">Three things, done properly.</h2>
         </div>
         <p className="max-w-measure self-end text-[0.9375rem] leading-relaxed text-bone-dim md:col-span-5 md:col-start-8">
