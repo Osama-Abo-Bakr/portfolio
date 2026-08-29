@@ -13,7 +13,7 @@ export function EditorialMeasures() {
   const ref = useReveal<HTMLElement>()
 
   return (
-    <section id="measures" ref={ref} className="invert-paper section-pad reveal">
+    <section id="measures" ref={ref} className="invert-white section-pad reveal">
       <SectionHead
         index="04"
         label="Measures"

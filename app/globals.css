@@ -3,26 +3,20 @@
 @tailwind utilities;
 
 /* ---------------------------------------------------------------
-   Palette — burgundy ground, warm cream, antique brass.
-   Near-monochrome by design: the ground carries the colour, and the
-   brass is the only second note, reserved for detected fields and
-   live interaction. On the cream insert the accent becomes burgundy,
-   because brass on paper is illegible and wine on paper is not.
+   Palette — deep olive-forest, cream, and true-white bands.
+   Taken from the Loire reference, which is near-monochrome by design:
+   the ground carries the colour and there is no bright accent at all.
+   The page alternates between two grounds, the way the reference does,
+   so each one restates the channels and every colour re-resolves.
    --------------------------------------------------------------- */
 @layer base {
-  /* Held as space-separated channels so Tailwind's alpha modifiers
-     (bg-ink/85, text-bone/80) can compose them. A full var(--x) color
-     silently drops those classes instead of failing loudly. */
   :root {
-    --ink-c: 42 21 28;
-    --ink-raised-c: 58 31 40;
-    --bone-c: 240 232 220;
-    /* Three steps of warm grey, each one clearing 4.5:1 on the ground it
-       sits on. The faint step carries real content — stack tags, locations,
-       the colophon — so it is a readable grey, not a whisper. */
-    --bone-dim-c: 183 169 166;
-    --bone-faint-c: 143 128 128;
-    --accent-c: 200 168 106;
+    --ink-c: 52 60 51;
+    --ink-raised-c: 43 50 42;
+    --bone-c: 231 232 224;
+    --bone-dim-c: 168 175 163;
+    --bone-faint-c: 137 145 133;
+    --accent-c: 176 190 164;
 
     --ink: rgb(var(--ink-c));
     --ink-raised: rgb(var(--ink-raised-c));
@@ -30,22 +24,20 @@
     --bone-dim: rgb(var(--bone-dim-c));
     --bone-faint: rgb(var(--bone-faint-c));
     --accent: rgb(var(--accent-c));
-    --rule: rgb(var(--bone-c) / 0.13);
-    --rule-strong: rgb(var(--bone-c) / 0.28);
+    --rule: rgb(var(--bone-c) / 0.22);
+    --rule-strong: rgb(var(--bone-c) / 0.42);
   }
 
-  /* The inverted insert: same ink and bone, roles swapped. */
-  .invert-paper {
-    --ink-c: 240 232 220;
-    --ink-raised-c: 230 220 205;
-    --bone-c: 42 21 28;
-    --bone-dim-c: 104 82 88;
-    --bone-faint-c: 116 94 98;
-    /* Burgundy proper — the accent the brass stands in for on dark. */
-    --accent-c: 125 36 64;
+  /* The light band. True white with near-black type, not cream — in the
+     reference these carry roughly half the page. */
+  .invert-white {
+    --ink-c: 255 255 255;
+    --ink-raised-c: 244 245 241;
+    --bone-c: 26 30 25;
+    --bone-dim-c: 92 100 90;
+    --bone-faint-c: 108 116 106;
+    --accent-c: 60 74 56;
 
-    /* Restated, not inherited: a custom property substitutes its var()s
-       where it is declared, so :root's --ink would keep :root's channels. */
     --ink: rgb(var(--ink-c));
     --ink-raised: rgb(var(--ink-raised-c));
     --bone: rgb(var(--bone-c));
@@ -57,6 +49,13 @@
 
     background-color: var(--ink);
     color: var(--bone);
+  }
+
+  /* A deeper plate of the same green, for full-bleed image bands. */
+  .band-deep {
+    --ink-c: 38 45 37;
+    --ink: rgb(var(--ink-c));
+    background-color: var(--ink);
   }
 
   * {
