@@ -1,135 +1,63 @@
-## 🎯 Osama Abo-Bakr Khalifa — AI & Machine Learning Engineer
+# Osama Abo-Bakr — Portfolio
 
-### 👤 Personal Info
+Editorial portfolio for **Osama Abo-Bakr**, AI Engineer & Solution Architect based in Cairo.
 
-* **Location**: Cairo, Egypt
-* **Age**: 21
-* **Email**: [osamaoabobakr12@gmail.com](mailto:osamaoabobakr12@gmail.com)
-* **Phone**: +20-1274011748
-* **GitHub**: [github.com/Osama-Abo-Bakr](https://github.com/Osama-Abo-Bakr)
-* **LinkedIn**: [linkedin.com/in/osama-abo-bakr-293614259](https://www.linkedin.com/in/osama-abo-bakr-293614259/)
+Live: <https://osama-abo-bakr.vercel.app>
 
----
+## Design
 
-## 🧠 About Me
+A typography-led editorial layout rather than a card grid — hairline rules, an
+asymmetric twelve-column grid, and a numbered running order that reads top to
+bottom as a single feature.
 
-I'm **Osama Abo-Bakr**, a passionate AI and Machine Learning Engineer with deep expertise in Data Science, Computer Vision, Natural Language Processing, LLMs, RAG pipelines, and AI Agent Architectures. I hold a degree from the Faculty of Artificial Intelligence and have earned a reputation as a **Top-Rated Freelancer on Upwork**, with a 100% job success rate.
+- **Palette** — press ink (`#0d0f12`), bone paper (`#ede9e0`), and Egyptian blue
+  (`#4c7df0`). The blue is the only chromatic note on the page.
+- **Type** — Bodoni Moda for display, Archivo for body, IBM Plex Mono for labels
+  and figures.
+- **Signature** — the masthead is annotated by hairline detection frames with
+  confidence scores, the way Osama's own YOLO field-detection models annotate a
+  document. It runs once, on load, and appears nowhere else.
+- **The insert** — *Measures* inverts to bone paper, a printed gatefold bound
+  into the middle of the issue. Every figure on it is measured and names its
+  source.
 
-I’m driven by solving real-world problems through innovative AI solutions — whether it’s document-based chatbots, AI agents for finance, or intelligent automation systems. I’ve also ranked highly on platforms like Kaggle, HackerRank, and LeetCode, and bring strong coding skills in Python and C++.
+Colours are held as space-separated channels (`--ink-c: 13 15 18`) so Tailwind's
+alpha modifiers compose; a full `var(--x)` colour makes Tailwind silently drop
+`bg-ink/85` and friends. `.invert-paper` restates the composed colours rather
+than relying on inheritance, because a custom property substitutes its `var()`s
+where it is *declared*, not where it is used.
 
----
+## Content
 
-## 🚀 Highlight Projects
+All copy, roles, projects and figures live in [`lib/content.ts`](lib/content.ts) —
+a single source of truth kept in step with `public/resume.pdf`. Update that one
+file to update the site.
 
-### 1. **InstaMasr — AI Government Services Platform**
+Projects carry an optional `href`: work that shipped inside a company has no
+public repository, and those rows say so instead of linking nowhere.
 
-🌐 [GitHub Repo](https://github.com/Osama-Abo-Bakr/instamasr)
-A modern web app simplifying Egyptian government services using an AI-powered chatbot.
+## Running it
 
-**Key Features:**
+```bash
+pnpm install
+pnpm dev
+```
 
-* 🤖 Conversational AI Interface
-* 📝 Submit Service Forms
-* 🔐 Secure Auth & Dashboard
-* 🌗 Light/Dark Mode
-* 🇪🇬 Full Arabic RTL Support
-* 📱 Responsive across all devices
+Then open <http://localhost:3000>.
 
----
+```bash
+pnpm build      # production build
+npx tsc --noEmit  # typecheck — next.config.mjs ignores type errors during build
+```
 
-### 2. **SaaS RAG Chatbot**
+## Stack
 
-🌐 [GitHub Repo](https://github.com/Osama-Abo-Bakr/SaaS-RAG-chatbot)
-An end-to-end Retrieval-Augmented Generation system with FastAPI, supporting document ingestion, user roles, and chat history.
+Next.js 15 (App Router, static) · React 19 · TypeScript · Tailwind CSS 3 ·
+`next/font` for self-hosted Google fonts. No UI framework, no client-side data
+fetching, no images to load.
 
-**Stack Highlights:** FastAPI, Weaviate, JWT Auth, RAG, File Upload (PDF, DOCX, CSV, PPTX)
+## Contact
 
----
-
-### 3. **AI Customer Support Chatbot**
-
-🌐 [GitHub Repo](https://github.com/Osama-Abo-Bakr/ai-customer-support)
-Automated customer service powered by FAISS + Google Generative AI.
-
-**Features:**
-
-* Multilingual Chat (English/Arabic)
-* YouTube & Document Parsing
-* Chat history stored in MySQL
-* WhatsApp Integration
-
----
-
-### 4. **Financial Data Analysis Agents**
-
-🌐 [GitHub Repo](https://github.com/Osama-Abo-Bakr/financial-data-analysis-crewai)
-A CrewAI-based system of agents that analyze financial data (PDFs + CSVs) and generate user-specific insights.
-
----
-
-### 5. **LinkedIn Post Generator (AI-Driven)**
-
-🌐 [GitHub Repo](https://github.com/Osama-Abo-Bakr/linkedin-post-generator)
-AI agents generate professional LinkedIn posts based on trending topics and skills.
-
-**Agent Roles:**
-
-* 🕵️‍♂️ Research Agent
-* 🧠 Content Strategist
-* 🗂 Topic Customization
-* 🔄 Sequential Pipeline
-
----
-
-### 6. **Chat with Any Database (SQL Bot)**
-
-🌐 [GitHub Repo](https://github.com/Osama-Abo-Bakr/chat-with-mysql)
-Chatbot that transforms natural language into SQL and queries real-time data.
-
-**Tech Stack:** GPT-4, Streamlit GUI, MySQL
-
----
-
-### 7. **Chat with Any Website (RAG)**
-
-🌐 [GitHub Repo](https://github.com/Osama-Abo-Bakr/Chat-with-Any-Website)
-LangChain-powered RAG system that lets users ask questions about any website’s content.
-
-**Highlights:**
-
-* Website Scraper
-* Embedding with Google Generative AI
-* Vector Search with ChromaDB
-* Context-aware conversation history
-
----
-
-### 8. **Real-Time Stock Market Agent**
-
-🌐 [GitHub Repo](https://github.com/Osama-Abo-Bakr/Stock-Agent)
-An AI-powered agent pipeline for analyzing stock sentiment and predicting short-term trends.
-
-**Features:**
-
-* 🔍 News Aggregation & Sentiment Analysis
-* 📉 Technical Indicators (RSI, MACD)
-* 📈 Short-term Price Forecasting
-
----
-
-### 9. **n8n Automation Workflows**
-
-Creating custom workflows in n8n for automating AI services, notifications, document flows, and more.
-
----
-
-## ⚙️ Tools & Tech Stack
-
-* **Languages**: Python, C++, JavaScript
-* **AI Frameworks**: PyTorch, TensorFlow, Hugging Face, OpenAI.
-* **Data Science Libraries**: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
-* **DevOps**: Docker, Docker Compose
-* **Web**: FastAPI, Streamlit, React, Tailwind
-* **Databases**: MySQL, PostgreSQL, Weaviate, FAISS, Chroma, Pinecone.
-* **Platforms**: Upwork, GitHub, LinkedIn, HackerRank, LeetCode
-* **Automation**: n8n, LangChain, CrewAI
+- Email — <osamaoabobakr12@gmail.com>
+- GitHub — <https://github.com/Osama-Abo-Bakr>
+- LinkedIn — <https://www.linkedin.com/in/osama-abo-bakr-293614259/>
