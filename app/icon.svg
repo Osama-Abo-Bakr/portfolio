@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Osama Abo-Bakr">
-  <rect width="32" height="32" fill="#0d0f12"/>
+  <rect width="32" height="32" fill="#2a151c"/>
   <!-- Didone O: thick vertical stems, hairline top and bottom. -->
-  <ellipse cx="16" cy="16" rx="8.6" ry="10.4" fill="#ede9e0"/>
-  <ellipse cx="16" cy="16" rx="4.1" ry="8.2" fill="#0d0f12"/>
+  <ellipse cx="16" cy="16" rx="8.6" ry="10.4" fill="#f0e8dc"/>
+  <ellipse cx="16" cy="16" rx="4.1" ry="8.2" fill="#2a151c"/>
   <!-- Detection frame corner ticks. -->
-  <g fill="#4c7df0">
+  <g fill="#c8a86a">
     <path d="M3 3h5v1.4H4.4V8H3z"/>
     <path d="M29 3v5h-1.4V4.4H24V3z"/>
     <path d="M3 29v-5h1.4v3.6H8V29z"/>

@@ -18,7 +18,7 @@ export function SectionHead({
   return (
     <div className="rule-t pt-6 md:pt-8">
       <div className="flex items-baseline gap-4">
-        <span className="font-mono text-label text-lapis">{index}</span>
+        <span className="font-mono text-label text-accent">{index}</span>
         <span className="label">{label}</span>
       </div>
       <div className="mt-8 grid gap-6 md:mt-12 md:grid-cols-12 md:gap-10">

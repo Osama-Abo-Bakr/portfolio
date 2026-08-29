@@ -33,7 +33,7 @@ export function EditorialPractice() {
             <ul className="space-y-4 md:col-span-7 md:col-start-6">
               {role.notes.map((note, i) => (
                 <li key={i} className="flex gap-4">
-                  <span aria-hidden className="mt-2.5 h-px w-4 shrink-0 bg-lapis/70" />
+                  <span aria-hidden className="mt-2.5 h-px w-4 shrink-0 bg-accent/70" />
                   <span className="max-w-measure text-[0.9375rem] leading-relaxed text-bone/80">{note}</span>
                 </li>
               ))}

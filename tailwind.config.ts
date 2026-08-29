@@ -19,7 +19,7 @@ const config: Config = {
           dim: "rgb(var(--bone-dim-c) / <alpha-value>)",
           faint: "rgb(var(--bone-faint-c) / <alpha-value>)",
         },
-        lapis: "rgb(var(--lapis-c) / <alpha-value>)",
+        accent: "rgb(var(--accent-c) / <alpha-value>)",
         rule: "var(--rule)",
       },
       fontFamily: {

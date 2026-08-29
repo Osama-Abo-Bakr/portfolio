@@ -37,7 +37,7 @@ export function EditorialWork() {
               </div>
 
               <div className="md:col-span-4">
-                <h3 className="font-display text-[1.625rem] font-medium leading-tight transition-colors duration-300 group-hover:text-lapis md:text-[1.875rem]">
+                <h3 className="font-display text-[1.625rem] font-medium leading-tight transition-colors duration-300 group-hover:text-accent md:text-[1.875rem]">
                   {project.title}
                 </h3>
                 <p className="label mt-2">{project.context}</p>
@@ -56,7 +56,7 @@ export function EditorialWork() {
 
               <div className="md:col-span-2 md:text-right">
                 {project.href ? (
-                  <span className="label inline-flex items-center gap-1.5 transition-colors duration-300 group-hover:text-lapis">
+                  <span className="label inline-flex items-center gap-1.5 transition-colors duration-300 group-hover:text-accent">
                     Source
                     <span aria-hidden className="transition-transform duration-500 ease-editorial group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
                       ↗
@@ -103,7 +103,7 @@ export function EditorialWork() {
           href="https://github.com/Osama-Abo-Bakr?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
-          className="label inline-flex items-center gap-2 hover:text-lapis"
+          className="label inline-flex items-center gap-2 hover:text-accent"
         >
           <span>All 100+ repositories on GitHub</span>
           <span aria-hidden>↗</span>

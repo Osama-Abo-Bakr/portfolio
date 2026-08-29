@@ -32,14 +32,14 @@ export function EditorialColophon() {
       >
         <span className="label">Write to me</span>
         <span className="mt-4 flex flex-wrap items-baseline gap-x-5 gap-y-2">
-          <span className="font-display text-[clamp(1.5rem,0.9rem+3.2vw,4rem)] font-medium leading-[1.08] transition-colors duration-300 group-hover:text-lapis">
+          <span className="font-display text-[clamp(1.5rem,0.9rem+3.2vw,4rem)] font-medium leading-[1.08] transition-colors duration-300 group-hover:text-accent">
             {/* An address wraps after the @, never mid-word. */}
             {identity.email.split("@")[0]}@<wbr />
             {identity.email.split("@")[1]}
           </span>
           <span
             aria-hidden
-            className="font-mono text-2xl text-lapis transition-transform duration-500 ease-editorial group-hover:-translate-y-1 group-hover:translate-x-1"
+            className="font-mono text-2xl text-accent transition-transform duration-500 ease-editorial group-hover:-translate-y-1 group-hover:translate-x-1"
           >
             ↗
           </span>

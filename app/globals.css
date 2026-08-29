@@ -3,45 +3,46 @@
 @tailwind utilities;
 
 /* ---------------------------------------------------------------
-   Palette — press ink, bone paper, Egyptian blue.
-   The blue is the only chromatic note on the page; it earns its
-   place by marking detected fields and live interaction, nothing else.
+   Palette — burgundy ground, warm cream, antique brass.
+   Near-monochrome by design: the ground carries the colour, and the
+   brass is the only second note, reserved for detected fields and
+   live interaction. On the cream insert the accent becomes burgundy,
+   because brass on paper is illegible and wine on paper is not.
    --------------------------------------------------------------- */
 @layer base {
   /* Held as space-separated channels so Tailwind's alpha modifiers
      (bg-ink/85, text-bone/80) can compose them. A full var(--x) color
      silently drops those classes instead of failing loudly. */
   :root {
-    --ink-c: 13 15 18;
-    --ink-raised-c: 20 23 28;
-    --bone-c: 237 233 224;
-    /* Three steps of grey, each one clearing 4.5:1 on the ground it sits
-       on. The faint step carries real content — stack tags, locations, the
-       colophon — so it is a readable grey, not a whisper. */
-    --bone-dim-c: 168 164 156;
-    --bone-faint-c: 128 125 118;
-    --lapis-c: 76 125 240;
+    --ink-c: 42 21 28;
+    --ink-raised-c: 58 31 40;
+    --bone-c: 240 232 220;
+    /* Three steps of warm grey, each one clearing 4.5:1 on the ground it
+       sits on. The faint step carries real content — stack tags, locations,
+       the colophon — so it is a readable grey, not a whisper. */
+    --bone-dim-c: 183 169 166;
+    --bone-faint-c: 143 128 128;
+    --accent-c: 200 168 106;
 
     --ink: rgb(var(--ink-c));
     --ink-raised: rgb(var(--ink-raised-c));
     --bone: rgb(var(--bone-c));
     --bone-dim: rgb(var(--bone-dim-c));
     --bone-faint: rgb(var(--bone-faint-c));
-    --lapis: rgb(var(--lapis-c));
+    --accent: rgb(var(--accent-c));
     --rule: rgb(var(--bone-c) / 0.13);
     --rule-strong: rgb(var(--bone-c) / 0.28);
   }
 
   /* The inverted insert: same ink and bone, roles swapped. */
   .invert-paper {
-    --ink-c: 237 233 224;
-    --ink-raised-c: 227 222 210;
-    --bone-c: 13 15 18;
-    --bone-dim-c: 90 88 82;
-    --bone-faint-c: 100 97 91;
-    /* Ink on paper is darker than light on screen; the screen blue would
-       only reach 3.2:1 here. */
-    --lapis-c: 58 95 204;
+    --ink-c: 240 232 220;
+    --ink-raised-c: 230 220 205;
+    --bone-c: 42 21 28;
+    --bone-dim-c: 104 82 88;
+    --bone-faint-c: 116 94 98;
+    /* Burgundy proper — the accent the brass stands in for on dark. */
+    --accent-c: 125 36 64;
 
     /* Restated, not inherited: a custom property substitutes its var()s
        where it is declared, so :root's --ink would keep :root's channels. */
@@ -50,7 +51,7 @@
     --bone: rgb(var(--bone-c));
     --bone-dim: rgb(var(--bone-dim-c));
     --bone-faint: rgb(var(--bone-faint-c));
-    --lapis: rgb(var(--lapis-c));
+    --accent: rgb(var(--accent-c));
     --rule: rgb(var(--bone-c) / 0.16);
     --rule-strong: rgb(var(--bone-c) / 0.34);
 
@@ -78,12 +79,12 @@
   }
 
   ::selection {
-    background: var(--lapis);
+    background: var(--accent);
     color: #fff;
   }
 
   :focus-visible {
-    outline: 2px solid var(--lapis);
+    outline: 2px solid var(--accent);
     outline-offset: 3px;
   }
 
@@ -121,7 +122,7 @@
   }
 
   .link-underline {
-    background-image: linear-gradient(var(--lapis), var(--lapis));
+    background-image: linear-gradient(var(--accent), var(--accent));
     background-size: 0% 1px;
     background-position: 0 100%;
     background-repeat: no-repeat;
@@ -130,18 +131,18 @@
   .link-underline:hover,
   .link-underline:focus-visible {
     background-size: 100% 1px;
-    color: var(--lapis);
+    color: var(--accent);
   }
 }
 
 /* ---------------------------------------------------------------
-   Signature: the detection frame.
+   Signature: the detection frame, struck in brass.
    Osama's field-detection models draw exactly this over a document —
    hairline box, confidence in the corner. Here it reads his own name.
    --------------------------------------------------------------- */
 .detect {
   position: absolute;
-  border: 1px solid var(--lapis);
+  border: 1px solid var(--accent);
   pointer-events: none;
   opacity: 0;
   animation: detect-lock 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -153,7 +154,7 @@
   position: absolute;
   width: 5px;
   height: 5px;
-  background: var(--lapis);
+  background: var(--accent);
 }
 .detect::before {
   top: -2px;
@@ -173,7 +174,7 @@
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--lapis);
+  color: var(--accent);
 }
 
 .detect-tag-below {

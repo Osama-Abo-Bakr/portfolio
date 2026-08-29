@@ -54,7 +54,7 @@ export function EditorialNav() {
         <div className="mx-auto flex h-14 max-w-page items-center justify-between gap-6 px-6 sm:px-10 lg:px-16 xl:px-20">
           <a
             href="#top"
-            className="font-display text-lg font-semibold tracking-tight transition-colors hover:text-lapis"
+            className="font-display text-lg font-semibold tracking-tight transition-colors hover:text-accent"
           >
             Osama Abo-Bakr
           </a>
@@ -83,7 +83,7 @@ export function EditorialNav() {
               href={identity.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="label border border-rule-strong px-3 py-1.5 text-bone transition-colors hover:border-lapis hover:text-lapis"
+              className="label border border-rule-strong px-3 py-1.5 text-bone transition-colors hover:border-accent hover:text-accent"
               style={{ borderColor: "var(--rule-strong)" }}
             >
               Résumé
@@ -119,7 +119,7 @@ export function EditorialNav() {
               onClick={() => setOpen(false)}
               className="flex items-baseline gap-5 border-b border-rule py-5"
             >
-              <span className="font-mono text-label text-lapis">{s.index}</span>
+              <span className="font-mono text-label text-accent">{s.index}</span>
               <span className="font-display text-3xl font-medium">{s.label}</span>
             </a>
           ))}
@@ -130,7 +130,7 @@ export function EditorialNav() {
             onClick={() => setOpen(false)}
             className="flex items-baseline gap-5 py-5"
           >
-            <span className="font-mono text-label text-lapis">↗</span>
+            <span className="font-mono text-label text-accent">↗</span>
             <span className="font-display text-3xl font-medium">Résumé</span>
           </a>
         </nav>
