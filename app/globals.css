@@ -14,8 +14,8 @@
     --ink-c: 52 60 51;
     --ink-raised-c: 43 50 42;
     --bone-c: 231 232 224;
-    --bone-dim-c: 168 175 163;
-    --bone-faint-c: 137 145 133;
+    --bone-dim-c: 196 201 190;
+    --bone-faint-c: 166 172 162;
     --accent-c: 176 190 164;
 
     --ink: rgb(var(--ink-c));
@@ -115,9 +115,77 @@
     border-bottom: 1px solid var(--rule);
   }
 
-  /* Section shell: the numbered head plus its hairline. */
+  /* Bands run full-bleed so their backgrounds reach the viewport edge;
+     the content inside is centred by padding rather than a wrapper, which
+     would otherwise clip the band. */
+  .page-pad {
+    padding-inline: max(1.5rem, calc((100% - 84rem) / 2));
+  }
+  @media (min-width: 640px) {
+    .page-pad {
+      padding-inline: max(2.5rem, calc((100% - 84rem) / 2));
+    }
+  }
+  @media (min-width: 1024px) {
+    .page-pad {
+      padding-inline: max(4rem, calc((100% - 84rem) / 2));
+    }
+  }
+
   .section-pad {
-    @apply px-6 py-20 sm:px-10 md:py-28 lg:px-16 xl:px-20;
+    @apply page-pad py-20 md:py-28;
+  }
+
+  /* The dashed structural grid the reference lays over its hero — a
+     visible column system rather than decoration. */
+  .grid-rules {
+    background-image:
+      repeating-linear-gradient(to right, var(--rule) 0 1px, transparent 1px 100%),
+      repeating-linear-gradient(to bottom, var(--rule) 0 1px, transparent 1px 100%);
+    background-size: 25% 100%, 100% 33.333%;
+    opacity: 0.5;
+  }
+
+  /* Bracketed control: corner ticks rather than a box, so the frame reads
+     as registration marks. */
+  .btn-frame {
+    @apply relative inline-flex items-center px-5 py-3 font-mono text-label uppercase transition-colors duration-300;
+    color: var(--bone);
+  }
+  .btn-frame::before,
+  .btn-frame::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: var(--rule-strong);
+    border-style: solid;
+    transition: border-color 0.3s ease;
+  }
+  .btn-frame::before {
+    top: 0;
+    left: 0;
+    border-width: 1px 0 0 1px;
+  }
+  .btn-frame::after {
+    right: 0;
+    bottom: 0;
+    border-width: 0 1px 1px 0;
+  }
+  .btn-frame:hover::before,
+  .btn-frame:hover::after,
+  .btn-frame:focus-visible::before,
+  .btn-frame:focus-visible::after {
+    border-color: var(--bone);
+  }
+
+  /* Capability pill — the orbiting labels around the reference's circle. */
+  .pill {
+    @apply inline-flex items-center whitespace-nowrap rounded-full px-4 py-2 font-mono text-label uppercase;
+    border: 1px solid var(--rule-strong);
+    background: rgb(var(--ink-c) / 0.72);
+    color: var(--bone);
+    backdrop-filter: blur(6px);
   }
 
   .link-underline {

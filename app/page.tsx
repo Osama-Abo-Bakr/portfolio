@@ -1,23 +1,29 @@
 import { EditorialNav } from "@/components/editorial-nav"
 import { EditorialHero } from "@/components/editorial-hero"
-import { EditorialProfile } from "@/components/editorial-profile"
+import { EditorialApproach } from "@/components/editorial-approach"
+import { EditorialDomains } from "@/components/editorial-domains"
+import { EditorialPipeline } from "@/components/editorial-pipeline"
+import { EditorialOrbit } from "@/components/editorial-orbit"
 import { EditorialPractice } from "@/components/editorial-practice"
 import { EditorialWork } from "@/components/editorial-work"
 import { EditorialMeasures } from "@/components/editorial-measures"
-import { EditorialToolkit } from "@/components/editorial-toolkit"
 import { EditorialColophon } from "@/components/editorial-colophon"
 
 export default function Home() {
   return (
     <>
       <EditorialNav />
-      <main className="mx-auto max-w-page">
+      {/* Bands alternate deep / dark / white the way the reference does;
+          the page is full-bleed, so the max-width lives inside each one. */}
+      <main>
         <EditorialHero />
-        <EditorialProfile />
+        <EditorialApproach />
+        <EditorialDomains />
+        <EditorialPipeline />
+        <EditorialOrbit />
         <EditorialPractice />
         <EditorialWork />
         <EditorialMeasures />
-        <EditorialToolkit />
         <EditorialColophon />
       </main>
     </>

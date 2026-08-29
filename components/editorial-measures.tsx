@@ -15,7 +15,7 @@ export function EditorialMeasures() {
   return (
     <section id="measures" ref={ref} className="invert-white section-pad reveal">
       <SectionHead
-        index="04"
+        index="07"
         label="Measures"
         title="Numbers that were measured, not claimed."
         aside="Each figure comes from a system in production and names where it came from. Where the work replaced something, the previous value is kept beside it."

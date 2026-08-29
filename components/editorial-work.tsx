@@ -14,8 +14,8 @@ export function EditorialWork() {
   return (
     <section id="work" ref={ref} className="section-pad reveal">
       <SectionHead
-        index="03"
-        label="Selected Work"
+        index="06"
+        label="Work"
         title={`${spell(work.length)} things worth the page.`}
         aside="Production systems sit alongside open source. Where a project shipped inside a company, there is no public repository to link — the row says so with a dash."
       />

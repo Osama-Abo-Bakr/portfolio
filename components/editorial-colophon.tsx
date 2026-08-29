@@ -1,6 +1,6 @@
 "use client"
 
-import { identity } from "@/lib/content"
+import { facts, identity } from "@/lib/content"
 import { SectionHead } from "@/components/section-head"
 import { useReveal } from "@/hooks/use-reveal"
 
@@ -18,8 +18,8 @@ export function EditorialColophon() {
   return (
     <section id="colophon" ref={ref} className="section-pad reveal">
       <SectionHead
-        index="06"
-        label="Colophon"
+        index="08"
+        label="Contact"
         title="Open to work that needs the hard part done properly."
         aside="Freelance and consulting enquiries welcome — retrieval systems, document intelligence, agent architectures, or an existing pipeline that needs to get faster."
       />
@@ -60,6 +60,15 @@ export function EditorialColophon() {
                 {channel.value}
               </a>
             </dd>
+          </div>
+        ))}
+      </dl>
+
+      <dl className="rule-t mt-16 grid gap-x-10 pt-8 sm:grid-cols-2 lg:grid-cols-3">
+        {facts.map((fact) => (
+          <div key={fact.label} data-reveal-child className="reveal py-4">
+            <dt className="label">{fact.label}</dt>
+            <dd className="mt-2 text-[0.9375rem] leading-relaxed text-bone/85">{fact.value}</dd>
           </div>
         ))}
       </dl>

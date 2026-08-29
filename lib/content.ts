@@ -254,11 +254,65 @@ export function spell(n: number): string {
   return NUMERALS[n] ?? String(n)
 }
 
+/** What the work actually is, grouped. Drawn from the roles below — these
+ *  are areas of practice, not services on offer. */
+export const domains = [
+  {
+    title: "Document Intelligence",
+    image: "/img/domain-1.jpg",
+    summary:
+      "Reading structure out of images: field detection, OCR fine-tuned on the language it will actually meet, MRZ parsing, and the post-processing that turns a prediction into a record you can trust.",
+  },
+  {
+    title: "Retrieval Systems",
+    image: "/img/domain-2.jpg",
+    summary:
+      "RAG that holds up past the demo — hybrid search, metadata extraction, multimodal ingestion, and conversation memory that survives a session across a real vector store.",
+  },
+  {
+    title: "Agent Architectures",
+    image: "/img/domain-3.jpg",
+    summary:
+      "Multi-agent pipelines that chain a job end to end, and the workflow automation around them, so the handoffs between steps are designed rather than improvised.",
+  },
+] as const
+
+/** The eKYC pipeline, stage by stage. A real sequence from the résumé —
+ *  each stage feeds the next, and the order carries information. */
+export const pipeline = [
+  {
+    index: "01",
+    title: "Detect",
+    image: "/img/stage-lead.jpg",
+    summary: "A YOLO model finds the fields on the document, including a dedicated model to separate multi-line regions that a single pass runs together.",
+  },
+  {
+    index: "02",
+    title: "Read",
+    image: "/img/stage-1.jpg",
+    summary: "PaddleOCR v5, fine-tuned on Arabic national ID data, reads each field in 3–7 ms.",
+  },
+  {
+    index: "03",
+    title: "Extract",
+    image: "/img/stage-2.jpg",
+    summary: "For passports, the machine-readable zone is located and decoded against its check digits.",
+  },
+  {
+    index: "04",
+    title: "Parse",
+    image: "/img/stage-3.jpg",
+    summary: "Rule-based post-processing turns raw predictions into structured, validated fields.",
+  },
+] as const
+
 export const sections = [
-  { id: "profile", index: "01", label: "Profile" },
-  { id: "practice", index: "02", label: "Practice" },
-  { id: "work", index: "03", label: "Selected Work" },
-  { id: "measures", index: "04", label: "Measures" },
-  { id: "toolkit", index: "05", label: "Toolkit" },
-  { id: "colophon", index: "06", label: "Colophon" },
+  { id: "approach", index: "01", label: "Approach" },
+  { id: "domains", index: "02", label: "Practice" },
+  { id: "pipeline", index: "03", label: "Pipeline" },
+  { id: "toolkit", index: "04", label: "Toolkit" },
+  { id: "profile", index: "05", label: "Profile" },
+  { id: "work", index: "06", label: "Work" },
+  { id: "measures", index: "07", label: "Measures" },
+  { id: "colophon", index: "08", label: "Contact" },
 ] as const

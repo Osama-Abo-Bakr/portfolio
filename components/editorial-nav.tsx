@@ -51,7 +51,7 @@ export function EditorialNav() {
       >
         {/* Same max-width and padding as <main>, so the masthead sits on
             the page grid instead of 48px outside it. */}
-        <div className="mx-auto flex h-14 max-w-page items-center justify-between gap-6 px-6 sm:px-10 lg:px-16 xl:px-20">
+        <div className="page-pad flex h-14 items-center justify-between gap-6">
           <a
             href="#top"
             className="font-display text-lg font-semibold tracking-tight transition-colors hover:text-accent"
@@ -111,7 +111,7 @@ export function EditorialNav() {
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
-        <nav className="mx-auto flex h-full max-w-page flex-col justify-center gap-1 px-6 sm:px-10">
+        <nav className="page-pad flex h-full flex-col justify-center gap-1">
           {sections.map((s) => (
             <a
               key={s.id}
