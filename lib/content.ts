@@ -34,7 +34,7 @@ export const facts: { label: string; value: string; href?: string }[] = [
   },
   { label: "Languages", value: "Arabic (native), English (conversational)" },
   { label: "Upwork", value: "Top Rated — 100% Job Success Score" },
-  { label: "HackerRank", value: "Top 98th percentile Python developer in Egypt" },
+  { label: "HackerRank", value: "Top 98th Python developer in Egypt — #1 in Python & Data Structures at Menoufia University" },
   { label: "Kaggle", value: "Expert — competitions and published datasets" },
   { label: "Availability", value: "Open to select freelance and consulting work" },
 ]
@@ -131,7 +131,7 @@ export const work: Project[] = [
     title: "eKYC OCR & Field Detection",
     context: "Thndr — production",
     summary:
-      "Identity document understanding for Arabic national IDs and passports: YOLO field detection, a fine-tuned PaddleOCR v5, MRZ parsing, face matching and fraud checks. Replaced a 3.3-second pipeline with one that answers in under half a second.",
+      "Identity document understanding for Arabic national IDs and passports: YOLO field detection, a fine-tuned PaddleOCR v5, MRZ parsing, face matching and fraud checks. Replaced a 3.3–3.8 second pipeline with one that answers in under half a second.",
     stack: ["YOLO", "PaddleOCR v5", "OpenCV", "Python", "Computer Vision"],
   },
   {
@@ -165,7 +165,7 @@ export const work: Project[] = [
     title: "EGX30 Trading Agent",
     context: "Personal research",
     summary:
-      "An institutional-grade portfolio system for the Egyptian Exchange — signal generation and position logic over EGX30 constituents.",
+      "An institutional-grade portfolio system for the EGX30, the Egyptian Exchange's benchmark index. First version.",
     stack: ["Python", "Quantitative Analysis", "Agents"],
     href: "https://github.com/Osama-Abo-Bakr/Trading_Agent",
   },
@@ -192,7 +192,7 @@ export const work: Project[] = [
     title: "DevOps Learn",
     context: "Open source",
     summary:
-      "A free, visual learning platform for Docker, Kubernetes and Docker Compose — written to teach the parts of container tooling that documentation tends to skip.",
+      "A free, visual learning platform for Docker, Kubernetes and Docker Compose.",
     stack: ["MDX", "Next.js", "Docker", "Kubernetes"],
     href: "https://github.com/Osama-Abo-Bakr/devops-learn",
   },
@@ -207,7 +207,10 @@ export const work: Project[] = [
 ]
 
 export type Figure = {
+  /** Previous value, where the work replaced something measurable. */
   from?: string
+  /** A qualifier the résumé attaches to the figure, e.g. "up to". */
+  qualifier?: string
   value: string
   label: string
   source: string
@@ -215,9 +218,9 @@ export type Figure = {
 
 // Every figure below is measured, and traceable to the work it came from.
 export const figures: Figure[] = [
-  { from: "3.3s", value: "0.3s", label: "eKYC pipeline latency, per document", source: "Thndr" },
+  { from: "3.3–3.8s", value: "0.2–0.4s", label: "eKYC pipeline latency, per document", source: "Thndr" },
   { from: "58%", value: "11%", label: "character error rate, multi-line fields", source: "Thndr" },
-  { value: "22×", label: "field accuracy against the prior system", source: "Thndr" },
+  { qualifier: "up to", value: "22×", label: "field accuracy against the prior system", source: "Thndr" },
   { value: "1.77%", label: "average CER, passport pipeline, 2,000 images", source: "Thndr" },
   { value: "500+", label: "conversations handled per day", source: "NexAI" },
   { value: "100%", label: "job success score across 10+ projects", source: "Upwork" },
@@ -239,6 +242,17 @@ export const toolkit: { group: string; items: string[] }[] = [
   { group: "Automation", items: ["n8n", "Make", "Custom API integrations"] },
   { group: "Frontend", items: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
 ]
+
+const NUMERALS = [
+  "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
+  "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen",
+  "Eighteen", "Nineteen", "Twenty",
+]
+
+/** Spells a small count so headline copy stays true when the data changes. */
+export function spell(n: number): string {
+  return NUMERALS[n] ?? String(n)
+}
 
 export const sections = [
   { id: "profile", index: "01", label: "Profile" },

@@ -1,6 +1,6 @@
 "use client"
 
-import { work } from "@/lib/content"
+import { spell, work } from "@/lib/content"
 import { SectionHead } from "@/components/section-head"
 import { useReveal } from "@/hooks/use-reveal"
 
@@ -16,7 +16,7 @@ export function EditorialWork() {
       <SectionHead
         index="03"
         label="Selected Work"
-        title="Nine things worth the page."
+        title={`${spell(work.length)} things worth the page.`}
         aside="Production systems sit alongside open source. Where a project shipped inside a company, there is no public repository to link — the row says so with a dash."
       />
 

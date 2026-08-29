@@ -13,7 +13,7 @@ export function EditorialPractice() {
         index="02"
         label="Practice"
         title="Where the work happened."
-        aside="Six posts across four years — a fintech ML team in Cairo, a support platform in Riyadh, a decade's worth of freelance briefs, and the university that started it."
+        aside="A university research bench, a support platform in Riyadh, a freelance practice, and now a fintech ML team in Cairo."
       />
 
       <div className="mt-14 md:mt-20">

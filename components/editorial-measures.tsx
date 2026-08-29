@@ -26,11 +26,16 @@ export function EditorialMeasures() {
           <div key={figure.label} data-reveal-child className="reveal rule-t py-8 md:py-12">
             <dt className="sr-only">{figure.label}</dt>
             <dd>
+              {/* The line above the numeral carries either what the figure
+                  replaced, or the qualifier the résumé attaches to it. It
+                  is subordinate to the number, never dropped from it. */}
               {figure.from ? (
                 <p className="mb-2 flex items-baseline gap-2 font-mono text-micro text-bone-dim">
                   <span className="line-through decoration-1">{figure.from}</span>
                   <span aria-hidden>→</span>
                 </p>
+              ) : figure.qualifier ? (
+                <p className="mb-2 font-mono text-micro text-bone-dim">{figure.qualifier}</p>
               ) : null}
               <p className="font-display text-figure font-medium">
                 {/* Bodoni has no multiplication sign, so it falls back to a
